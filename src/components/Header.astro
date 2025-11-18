@@ -3,10 +3,6 @@ import ThemeSelect from './ThemeSelect.astro';
 import type { Props } from '@astrojs/starlight/props';
 ---
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFFSBW3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 <div class='nav-main mx-auto flex antialiased'>
     <div class='flex items-center w-full'>
         <a href='/' class='navbar-brand'>
@@ -620,19 +616,19 @@ import type { Props } from '@astrojs/starlight/props';
             <li class='nav-item nav-theme-select border-t-1 border-[#ddd] border-solid'>
                 <ThemeSelect {...Astro.props} />
             </li>
-            <li class='nav-item nav-item-login'>
-                <a
-                    href='https://app.swaggerhub.com/login?channel=direct'
-                    class='block py-2 px-5'
-                    >Sign In</a
-                >
-            </li>
-            <li class='nav-item nav-item-free-trial'>
-                <a
-                    class='block py-2 px-5'
-                    href='/why-swagger/'>Try Free</a
-                >
-            </li>
+            <!-- <li class='nav-item nav-item-login'> -->
+            <!--     <a -->
+            <!--         href='https://app.swaggerhub.com/login?channel=direct' -->
+            <!--         class='block py-2 px-5' -->
+            <!--         >Sign In</a -->
+            <!--     > -->
+            <!-- </li> -->
+            <!-- <li class='nav-item nav-item-free-trial'> -->
+            <!--     <a -->
+            <!--         class='block py-2 px-5' -->
+            <!--         href='/why-swagger/'>Try Free</a -->
+            <!--     > -->
+            <!-- </li> -->
         </ul>
         <div class='nav-main-toggle'>
             <div class='hamburger'></div>
@@ -1517,20 +1513,22 @@ import type { Props } from '@astrojs/starlight/props';
             w.sbSearch.init(config);
         }
 
-        var s = document.createElement('script');
-        s.src =
-            'https://static' +
-            (w.location.href.indexOf('stag') == -1 ? 1 : 0) +
-            '.smartbear.co/smartbear/react/search/search.js?t=' +
-            Math.random();
-        s.async = true;
-        s.onreadystatechange = function () {
-            if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                initSearch();
-            }
-        };
-        s.onload = initSearch;
-        d.body.appendChild(s);
+        // Suppose hidden tracking loading
+        //
+        // var s = document.createElement('script');
+        // s.src =
+        //     'https://static' +
+        //     (w.location.href.indexOf('stag') == -1 ? 1 : 0) +
+        //     '.smartbear.co/smartbear/react/search/search.js?t=' +
+        //     Math.random();
+        // s.async = true;
+        // s.onreadystatechange = function () {
+        //     if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        //         initSearch();
+        //     }
+        // };
+        // s.onload = initSearch;
+        // d.body.appendChild(s);
     })(window, document);
 
     // Check if small screen

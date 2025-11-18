@@ -1,12 +1,26 @@
-
-# <img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" height="60">  
+# <img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" height="60">
 
 For general support questions, please refer to the [Community Forums](https://community.smartbear.com/t5/Swagger-Open-Source-Tools/bd-p/SwaggerOSTools).
 
 # Swagger Open Source Documentation
 
-Welcome to the Swagger Open Source Documentation repository. This repository contains all the documentation for Swagger, an open-source suite of tools for API development, and OpenAPI Specification (FKA Swagger). The content of this repository is published at https://swagger.io/docs/.
+```
+░█▀▄░█░█░▀█▀░░░█░█░▀█▀░▀█▀░█░█░█▀█░█░█░▀█▀
+░█▀▄░█░█░░█░░░░█▄█░░█░░░█░░█▀█░█░█░█░█░░█░
+░▀▀░░▀▀▀░░▀░░░░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░░▀░
+░█▀▄░█▀█░█▀█░█▀█░█▀▀░█▀▄░█▀▀░░░▄▀░
+░█▀▄░█▀█░█░█░█░█░█▀▀░█▀▄░▀▀█░░░▄█▀
+░▀▀░░▀░▀░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░░░▀▀
+░▀█▀░█▀▄░█▀█░█▀▀░█░█░█▀▀░█▀▄░█▀▀
+░░█░░█▀▄░█▀█░█░░░█▀▄░█▀▀░█▀▄░▀▀█
+░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀
+```
 
+**This is currently a fork**. The main goal of it is to remove all trackers and promo that, unfortunately, are placed in swagger official docs.
+
+If you have found any _suspicious_ background activity clearly reminiscent of data send off, feel free to leave a pull request or throw an issue)
+
+Welcome to the Swagger Open Source Documentation repository. This repository contains all the documentation for Swagger, an open-source suite of tools for API development, and OpenAPI Specification (FKA Swagger). The content of this repository is published at https://swagger.io/docs/.
 
 ## Tech Stack
 
@@ -36,6 +50,7 @@ To get started with contributing to the Swagger Open Source Docs, follow these s
 #### Prerequisites
 
 Ensure you have the following installed on your machine:
+
 - [Node.js](https://nodejs.org/) (version 14 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
@@ -43,18 +58,18 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/swagger-api/swagger.io-docs.git
-    cd swagger.io
-    ```
+   ```bash
+   git clone https://github.com/swagger-api/swagger.io-docs.git
+   cd swagger.io
+   ```
 
 2. Install dependencies:
 
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
 #### Running the Development Server
 

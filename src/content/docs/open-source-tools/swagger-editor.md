@@ -13,7 +13,7 @@ The source code for the Swagger Editor can be found in GitHub.
 
 GitHub: [https://github.com/swagger-api/swagger-editor](https://github.com/swagger-api/swagger-editor)
 
-Only **Swagger Editor Next** supports [OpenAPI 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md). 
+Only **Swagger Editor Next** supports [OpenAPI 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md).
 SwaggerEditor@4 will not receive OpenAPI 3.1.0 support and is considered legacy at this point.
 The plan is to continually migrate fully to SwaggerEditor@5 and deprecate the SwaggerEditor@4 in the future.
 
@@ -56,38 +56,41 @@ To help with the migration, here are the currently known issues with 3.X. This l
 Any of the scripts below can be run by typing `npm run <script name>` in the project's root directory.
 
 ### Developing
-Script name | Description
---- | ---
-`dev` | Spawn a hot-reloading dev server on port 3200.
-`deps-check` | Generate a size and licensing report on Swagger Editors's dependencies.
-`lint` | Report ESLint style errors and warnings.
-`lint-errors` | Report ESLint style errors, without warnings.
-`lint-fix` | Attempt to fix style errors automatically.
-`watch` | Rebuild the core files in `/dist` when the source code changes. Useful for `npm link`.
+
+| Script name   | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| `dev`         | Spawn a hot-reloading dev server on port 3200.                                         |
+| `deps-check`  | Generate a size and licensing report on Swagger Editors's dependencies.                |
+| `lint`        | Report ESLint style errors and warnings.                                               |
+| `lint-errors` | Report ESLint style errors, without warnings.                                          |
+| `lint-fix`    | Attempt to fix style errors automatically.                                             |
+| `watch`       | Rebuild the core files in `/dist` when the source code changes. Useful for `npm link`. |
 
 ### Building
-Script name | Description
---- | ---
-`build` | Build a new set of JS and CSS assets, and output them to `/dist`.
-`build:bundle` | Build `swagger-editor-bundle.js` only (commonJS).
-`build:core` | Build `swagger-editor.(js\|css)` only (commonJS).
-`build:standalone` | Build `swagger-editor-standalone-preset.js` only (commonJS).
-`build:stylesheets` | Build `swagger-editor.css` only.
-`build:es:bundle` | Build `swagger-editor-es-bundle.js` only (es2015).
-`build:es:bundle:core` | Build `swagger-editor-es-bundle-core.js` only (es2015).
+
+| Script name            | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| `build`                | Build a new set of JS and CSS assets, and output them to `/dist`. |
+| `build:bundle`         | Build `swagger-editor-bundle.js` only (commonJS).                 |
+| `build:core`           | Build `swagger-editor.(js\|css)` only (commonJS).                 |
+| `build:standalone`     | Build `swagger-editor-standalone-preset.js` only (commonJS).      |
+| `build:stylesheets`    | Build `swagger-editor.css` only.                                  |
+| `build:es:bundle`      | Build `swagger-editor-es-bundle.js` only (es2015).                |
+| `build:es:bundle:core` | Build `swagger-editor-es-bundle-core.js` only (es2015).           |
 
 ### Testing
-Script name | Description
---- | ---
-`test` | Run unit tests in Node, run Cypress end-to-end tests, and run ESLint in errors-only mode.
-`test:unit-mocha` | Run Mocha-based unit tests in Node.
-`test:unit-jest` | Run Jest-based unit tests in Node.
-`e2e` | Run end-to-end browser tests with Cypress.
-`lint` | Run ESLint test
-`test:artifact` | Run list of bundle artifact tests in Jest
-`test:artifact:umd:bundle` | Run unit test that confirms `swagger-editor-bundle` exports as a Function
-`test:artifact:es:bundle` | Run unit test that confirms `swagger-editor-es-bundle` exports as a Function
-`test:artifact:es:bundle:core` | Run unit test that confirms `swagger-editor-es-bundle-core` exports as a Function
+
+| Script name                    | Description                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `test`                         | Run unit tests in Node, run Cypress end-to-end tests, and run ESLint in errors-only mode. |
+| `test:unit-mocha`              | Run Mocha-based unit tests in Node.                                                       |
+| `test:unit-jest`               | Run Jest-based unit tests in Node.                                                        |
+| `e2e`                          | Run end-to-end browser tests with Cypress.                                                |
+| `lint`                         | Run ESLint test                                                                           |
+| `test:artifact`                | Run list of bundle artifact tests in Jest                                                 |
+| `test:artifact:umd:bundle`     | Run unit test that confirms `swagger-editor-bundle` exports as a Function                 |
+| `test:artifact:es:bundle`      | Run unit test that confirms `swagger-editor-es-bundle` exports as a Function              |
+| `test:artifact:es:bundle:core` | Run unit test that confirms `swagger-editor-es-bundle-core` exports as a Function         |
 
 ## Docker
 
@@ -102,15 +105,15 @@ docker pull docker.swagger.io/swaggerapi/swagger-editor
 docker run -d -p 80:8080 docker.swagger.io/swaggerapi/swagger-editor
 ```
 
-This will run Swagger Editor (in detached mode) on port 80 on your machine, so you can open it by navigating to `http://localhost` in your browser.  
+This will run Swagger Editor (in detached mode) on port 80 on your machine, so you can open it by navigating to `http://localhost` in your browser.
 
-* You can provide a URL pointing to an API definition (may not be available if some security policies such as CSP or CORS are enforced):
+- You can provide a URL pointing to an API definition (may not be available if some security policies such as CSP or CORS are enforced):
 
 ```
 docker run -d -p 80:8080 -e URL="https://petstore3.swagger.io/api/v3/openapi.json" docker.swagger.io/swaggerapi/swagger-editor
 ```
 
-* You can provide your own `json` or `yaml` definition file from your local host:
+- You can provide your own `json` or `yaml` definition file from your local host:
 
 ```
 docker run -d -p 80:8080 -v $(pwd):/tmp -e SWAGGER_FILE=/tmp/swagger.json docker.swagger.io/swaggerapi/swagger-editor
@@ -118,31 +121,25 @@ docker run -d -p 80:8080 -v $(pwd):/tmp -e SWAGGER_FILE=/tmp/swagger.json docker
 
 **Note:** When both `URL` and `SWAGGER_FILE` environment variables are set, `URL` has priority and `SWAGGER_FILE` is ignored.
 
-* You can specify a different base url via `BASE_URL` variable for accessing the application - for example if you want the application to be available at `http://localhost/swagger-editor/`:
+- You can specify a different base url via `BASE_URL` variable for accessing the application - for example if you want the application to be available at `http://localhost/swagger-editor/`:
 
 ```
 docker run -d -p 80:8080 -e BASE_URL=/swagger-editor docker.swagger.io/swaggerapi/swagger-editor
 ```
 
-* You can specify a different port via `PORT` variable for accessing the application, default is `8080`.
+- You can specify a different port via `PORT` variable for accessing the application, default is `8080`.
 
 ```
 docker run -d -p 80:80 -e PORT=80 docker.swagger.io/swaggerapi/swagger-editor
 ```
 
-* You can specify Google Tag Manager ID via `GTM` variable for tracking the usage of the swagger-editor.
-
-```
-docker run -d -p 80:8080 -e GTM=GTM-XXXXXX docker.swagger.io/swaggerapi/swagger-editor
-```
-
 You can also customize the different endpoints used by the Swagger Editor with the following environment variables. For instance, this can be useful if you have your own Swagger generator server:
 
-Environment variable | Default value
---- | ---
-`URL_SWAGGER2_GENERATOR` | `https://generator.swagger.io/api/swagger.json`
-`URL_OAS3_GENERATOR` | `https://generator3.swagger.io/openapi.json`
-`URL_SWAGGER2_CONVERTER` | `https://converter.swagger.io/api/convert`
+| Environment variable     | Default value                                   |
+| ------------------------ | ----------------------------------------------- |
+| `URL_SWAGGER2_GENERATOR` | `https://generator.swagger.io/api/swagger.json` |
+| `URL_OAS3_GENERATOR`     | `https://generator3.swagger.io/openapi.json`    |
+| `URL_SWAGGER2_CONVERTER` | `https://converter.swagger.io/api/convert`      |
 
 If you want to run the Swagger Editor locally without the Codegen features (Generate Server and Generate Client) you can set the above environment variables to `null` (`URL_SWAGGER2_CONVERTER=null`).
 
@@ -168,9 +165,9 @@ You can then view the app by navigating to `http://localhost` in your browser.
 
 ## Documentation
 
-* [Importing your OpenAPI document](docs/import.md)
+- [Importing your OpenAPI document](docs/import.md)
 
-* [Contributing](https://github.com/swagger-api/.github/blob/master/CONTRIBUTING.md)
+- [Contributing](https://github.com/swagger-api/.github/blob/master/CONTRIBUTING.md)
 
 ### Using older version of React
 
@@ -205,11 +202,9 @@ In order to inform `swagger-editor@4` npm package that I require it to use my Re
 > [!NOTE]
 > The React and ReactDOM override are defined as a reference to the dependency. Since _react-redux@9_ only supports `React >= 18`, we need to use _react-redux@8_.
 
-
 ### yarn
 
 In order to inform `swagger-editor@4` npm package that I require it to use my specific React version, I need to use [yarn resolutions](https://yarnpkg.com/cli/set/resolution).
-
 
 ```json
 {
@@ -226,7 +221,7 @@ In order to inform `swagger-editor@4` npm package that I require it to use my sp
 ```
 
 > [!NOTE]
-> The React and ReactDOM resolution cannot be defined as a reference to the dependency. Unfortunately *yarn* does not support aliasing like `$react` or `$react-dom` as *npm* does. You'll need to specify the exact versions.
+> The React and ReactDOM resolution cannot be defined as a reference to the dependency. Unfortunately _yarn_ does not support aliasing like `$react` or `$react-dom` as _npm_ does. You'll need to specify the exact versions.
 
 ## Security contact
 
@@ -248,3 +243,4 @@ Swagger Editor uses [Scarf](https://scarf.sh/) to collect [anonymized installati
 ```
 
 Alternatively, you can set the environment variable `SCARF_ANALYTICS` to `false` as part of the environment that installs your npm packages, e.g., `SCARF_ANALYTICS=false npm install`.
+

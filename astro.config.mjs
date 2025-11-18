@@ -5,403 +5,501 @@ import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import sitemap from "@astrojs/sitemap";
 
 // Set base path depending on the branch (main branch gets "/docs/", others have no base path)
-const basePath = process.env.CF_PAGES_BRANCH === 'main' ? '/docs/' : '/' || '/';
+const basePath = process.env.CF_PAGES_BRANCH === "main" ? "/docs/" : "/" || "/";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://swagger.io",
   base: basePath,
-  trailingSlash: 'ignore',
-  integrations: [starlight({
-    head: [
-      {
-        tag: 'script',
-        content: "function loadGoogleTagManager(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=!0;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}window.addEventListener('load',function(){loadGoogleTagManager(window,document,'script','dataLayer','GTM-PFFSBW3');});"
-      }],
-    title: "Swagger Docs",
-    customCss: [
-    // Path to your Tailwind base styles:
-    "./src/tailwind.css", "./src/styles/fonts.css", "./src/styles/custom.css"],
-    social: {
-      github: "https://github.com/withastro/starlight"
-    },
-    sidebar: [{
-      label: "SwaggerHub",
-      link: "https://support.smartbear.com/swaggerhub/docs/",
-      attrs: {
-        target: '_blank'
-      }
-    }, {
-      label: "SwaggerHub Explore",
-      link: "https://support.smartbear.com/swaggerhub-explore/docs/",
-      attrs: {
-        target: '_blank'
-      }
-    }, {
-      label: "Open Source Tools",
-      items: [{
-        label: "Swagger Editor",
-        link: "open-source-tools/swagger-editor/"
-      }, {
-        label: "Swagger Editor Next",
-        link: "open-source-tools/swagger-editor-next/"
-      }, {
-        label: "Swagger UI",
-        items: [{
-          label: "Usage",
-          items: [{
-            label: "Swagger UI Installation",
-            link: "open-source-tools/swagger-ui/usage/installation/"
-          }, {
-            label: "Configuration",
-            link: "open-source-tools/swagger-ui/usage/configuration/"
-          }, {
-            label: "CORS",
-            link: "open-source-tools/swagger-ui/usage/cors/"
-          }, {
-            label: "OAuth 2.0",
-            link: "open-source-tools/swagger-ui/usage/oauth2/"
-          }, {
-            label: "Deep Linking",
-            link: "open-source-tools/swagger-ui/usage/deep-linking/"
-          }, {
-            label: "Limitations",
-            link: "open-source-tools/swagger-ui/usage/limitations/"
-          }, {
-            label: "Version detection",
-            link: "open-source-tools/swagger-ui/usage/version-detection/"
-          }],
-          collapsed: true
-        }, {
-          label: "Customization",
-          items: [{
-            label: "Overview",
-            link: "open-source-tools/swagger-ui/customization/overview/"
-          }, {
-            label: "Plugin API",
-            link: "open-source-tools/swagger-ui/customization/plugin-api/"
-          }, {
-            label: "Plug points",
-            link: "open-source-tools/swagger-ui/customization/plug-points/"
-          }, {
-            label: "Custom layout",
-            link: "open-source-tools/swagger-ui/customization/custom-layout/"
-          }],
-          collapsed: true
-        }, {
-          label: "Development",
-          items: [{
-            label: "Setting up",
-            link: "open-source-tools/swagger-ui/development/setting-up/"
-          }, {
-            label: "Scripts",
-            link: "open-source-tools/swagger-ui/development/scripts/"
-          }],
-          collapsed: true
-        }],
-        collapsed: true
-      }, {
-        label: "Swagger Codegen",
-        items: [
-          {
-            label: "Codegen v3",
-            items: [
-              {
-                label: "What is Swagger Codegen?",
-                link: "open-source-tools/swagger-codegen/codegen-v3/about/"
-              },
-              {
-                label: "Versioning",
-                link: "open-source-tools/swagger-codegen/codegen-v3/versioning/"
-              },
-              {
-                label: "Compatibility",
-                link: "open-source-tools/swagger-codegen/codegen-v3/compatibility/"
-              },
-              {
-                label: "Prerequisites",
-                link: "open-source-tools/swagger-codegen/codegen-v3/prerequisites/"
-              },
-              {
-                label: "Building",
-                link: "open-source-tools/swagger-codegen/codegen-v3/building/"
-              },
-              {
-                label: "Using Docker",
-                link: "open-source-tools/swagger-codegen/codegen-v3/docker/"
-              },
-              {
-                label: "Generators",
-                link: "open-source-tools/swagger-codegen/codegen-v3/generators/"
-              },
-              {
-                label: "Selective Generation",
-                link: "open-source-tools/swagger-codegen/codegen-v3/generation-selective/"
-              },
-              {
-                label: "Advanced Generator Configuration",
-                link: "open-source-tools/swagger-codegen/codegen-v3/generators-configuration/"
-              },
-              {
-                label: "Workflow Integration",
-                link: "open-source-tools/swagger-codegen/codegen-v3/workflow-integration/"
-              },
-              {
-                label: "Online Generators",
-                link: "open-source-tools/swagger-codegen/codegen-v3/online-generators/"
-              }
-            ]            
+  trailingSlash: "ignore",
+  integrations: [
+    starlight({
+      head: [],
+      title: "Swagger Docs",
+      customCss: [
+        // Path to your Tailwind base styles:
+        "./src/tailwind.css",
+        "./src/styles/fonts.css",
+        "./src/styles/custom.css",
+      ],
+      social: {
+        github: "https://github.com/withastro/starlight",
+      },
+      sidebar: [
+        {
+          label: "SwaggerHub",
+          link: "https://support.smartbear.com/swaggerhub/docs/",
+          attrs: {
+            target: "_blank",
           },
-          {
-          label: "Codegen v2",
+        },
+        {
+          label: "SwaggerHub Explore",
+          link: "https://support.smartbear.com/swaggerhub-explore/docs/",
+          attrs: {
+            target: "_blank",
+          },
+        },
+        {
+          label: "Open Source Tools",
           items: [
             {
-              label: "What is Swagger Codegen?",
-              link: "open-source-tools/swagger-codegen/codegen-v2/about/"
+              label: "Swagger Editor",
+              link: "open-source-tools/swagger-editor/",
             },
             {
-              label: "Versioning",
-              link: "open-source-tools/swagger-codegen/codegen-v2/versioning/"
+              label: "Swagger Editor Next",
+              link: "open-source-tools/swagger-editor-next/",
             },
             {
-              label: "Compatibility",
-              link: "open-source-tools/swagger-codegen/codegen-v2/compatibility/"
+              label: "Swagger UI",
+              items: [
+                {
+                  label: "Usage",
+                  items: [
+                    {
+                      label: "Swagger UI Installation",
+                      link: "open-source-tools/swagger-ui/usage/installation/",
+                    },
+                    {
+                      label: "Configuration",
+                      link: "open-source-tools/swagger-ui/usage/configuration/",
+                    },
+                    {
+                      label: "CORS",
+                      link: "open-source-tools/swagger-ui/usage/cors/",
+                    },
+                    {
+                      label: "OAuth 2.0",
+                      link: "open-source-tools/swagger-ui/usage/oauth2/",
+                    },
+                    {
+                      label: "Deep Linking",
+                      link: "open-source-tools/swagger-ui/usage/deep-linking/",
+                    },
+                    {
+                      label: "Limitations",
+                      link: "open-source-tools/swagger-ui/usage/limitations/",
+                    },
+                    {
+                      label: "Version detection",
+                      link: "open-source-tools/swagger-ui/usage/version-detection/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Customization",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "open-source-tools/swagger-ui/customization/overview/",
+                    },
+                    {
+                      label: "Plugin API",
+                      link: "open-source-tools/swagger-ui/customization/plugin-api/",
+                    },
+                    {
+                      label: "Plug points",
+                      link: "open-source-tools/swagger-ui/customization/plug-points/",
+                    },
+                    {
+                      label: "Custom layout",
+                      link: "open-source-tools/swagger-ui/customization/custom-layout/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Development",
+                  items: [
+                    {
+                      label: "Setting up",
+                      link: "open-source-tools/swagger-ui/development/setting-up/",
+                    },
+                    {
+                      label: "Scripts",
+                      link: "open-source-tools/swagger-ui/development/scripts/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+              ],
+              collapsed: true,
             },
             {
-              label: "Prerequisites",
-              link: "open-source-tools/swagger-codegen/codegen-v2/prerequisites/"
+              label: "Swagger Codegen",
+              items: [
+                {
+                  label: "Codegen v3",
+                  items: [
+                    {
+                      label: "What is Swagger Codegen?",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/about/",
+                    },
+                    {
+                      label: "Versioning",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/versioning/",
+                    },
+                    {
+                      label: "Compatibility",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/compatibility/",
+                    },
+                    {
+                      label: "Prerequisites",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/prerequisites/",
+                    },
+                    {
+                      label: "Building",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/building/",
+                    },
+                    {
+                      label: "Using Docker",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/docker/",
+                    },
+                    {
+                      label: "Generators",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/generators/",
+                    },
+                    {
+                      label: "Selective Generation",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/generation-selective/",
+                    },
+                    {
+                      label: "Advanced Generator Configuration",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/generators-configuration/",
+                    },
+                    {
+                      label: "Workflow Integration",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/workflow-integration/",
+                    },
+                    {
+                      label: "Online Generators",
+                      link: "open-source-tools/swagger-codegen/codegen-v3/online-generators/",
+                    },
+                  ],
+                },
+                {
+                  label: "Codegen v2",
+                  items: [
+                    {
+                      label: "What is Swagger Codegen?",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/about/",
+                    },
+                    {
+                      label: "Versioning",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/versioning/",
+                    },
+                    {
+                      label: "Compatibility",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/compatibility/",
+                    },
+                    {
+                      label: "Prerequisites",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/prerequisites/",
+                    },
+                    {
+                      label: "Building",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/building/",
+                    },
+                    {
+                      label: "Using Docker",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/docker/",
+                    },
+                    {
+                      label: "Generators",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/generators/",
+                    },
+                    {
+                      label: "Selective Generation",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/generation-selective/",
+                    },
+                    {
+                      label: "Advanced Generator Configuration",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/generators-configuration/",
+                    },
+                    {
+                      label: "Workflow Integration",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/workflow-integration/",
+                    },
+                    {
+                      label: "Online Generators",
+                      link: "open-source-tools/swagger-codegen/codegen-v2/online-generators/",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          collapsed: true,
+        },
+        {
+          label: "OpenAPI Guide",
+          items: [
+            {
+              label: "Version 3.0",
+              items: [
+                {
+                  label: "What Is OpenAPI?",
+                  link: "specification/v3_0/about/",
+                },
+                {
+                  label: "Basic Structure",
+                  link: "specification/v3_0/basic-structure/",
+                },
+                {
+                  label: "API Server and Base Path",
+                  link: "specification/v3_0/api-host-and-base-path/",
+                },
+                {
+                  label: "Media Types",
+                  link: "specification/v3_0/media-types/",
+                },
+                {
+                  label: "Paths and Operations",
+                  link: "specification/v3_0/paths-and-operations/",
+                },
+                {
+                  label: "Describing Parameters",
+                  link: "specification/v3_0/describing-parameters/",
+                },
+                {
+                  label: "Parameter Serialization",
+                  link: "specification/v3_0/serialization/",
+                },
+                {
+                  label: "Describing Request Body",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "specification/v3_0/describing-request-body/describing-request-body",
+                    },
+                    {
+                      label: "File Upload",
+                      link: "specification/v3_0/describing-request-body/file-upload/",
+                    },
+                    {
+                      label: "Multipart Requests",
+                      link: "specification/v3_0/describing-request-body/multipart-requests/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Describing Responses",
+                  link: "specification/v3_0/describing-responses/",
+                },
+                {
+                  label: "Data Models",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "specification/v3_0/data-models/data-models/",
+                    },
+                    {
+                      label: "Data Types",
+                      link: "specification/v3_0/data-models/data-types/",
+                    },
+                    {
+                      label: "Enums",
+                      link: "specification/v3_0/data-models/enums/",
+                    },
+                    {
+                      label: "Dictionaries, Hashmaps, Associative Arrays",
+                      link: "/specification/v3_0/data-models/dictionaries/",
+                    },
+                    {
+                      label: "oneOf, anyOf, allOf, not",
+                      link: "specification/v3_0/data-models/oneof-anyof-allof-not/",
+                    },
+                    {
+                      label: "Inheritance and Polymorphism",
+                      link: "specification/v3_0/data-models/inheritance-and-polymorphism/",
+                    },
+                    {
+                      label: "Representing XML",
+                      link: "specification/v3_0/data-models/representing-xml/",
+                    },
+                    {
+                      label: "Supported JSON Schema Keywords",
+                      link: "specification/v3_0/data-models/keywords/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Adding Examples",
+                  link: "specification/v3_0/adding-examples/",
+                },
+                {
+                  label: "Authentication",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "specification/v3_0/authentication/",
+                    },
+                    {
+                      label: "Basic Authentication",
+                      link: "specification/v3_0/authentication/basic-authentication/",
+                    },
+                    {
+                      label: "API Keys",
+                      link: "specification/v3_0/authentication/api-keys/",
+                    },
+                    {
+                      label: "Bearer Authentication",
+                      link: "specification/v3_0/authentication/bearer-authentication/",
+                    },
+                    {
+                      label: "OAuth 2.0",
+                      link: "specification/v3_0/authentication/oauth2/",
+                    },
+                    {
+                      label: "OpenID Connect Discovery",
+                      link: "specification/v3_0/authentication/openid-connect-discovery/",
+                    },
+                    {
+                      label: "Cookie Authentication",
+                      link: "specification/v3_0/authentication/cookie-authentication/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Links",
+                  link: "specification/v3_0/links/",
+                },
+                {
+                  label: "Callbacks",
+                  link: "specification/v3_0/callbacks/",
+                },
+                {
+                  label: "Components Section",
+                  link: "specification/v3_0/components/",
+                },
+                {
+                  label: "Using $ref",
+                  link: "specification/v3_0/using-ref/",
+                },
+                {
+                  label: "API General Info",
+                  link: "specification/v3_0/api-general-info/",
+                },
+                {
+                  label: "Grouping Operations With Tags",
+                  link: "specification/v3_0/grouping-operations-with-tags/",
+                },
+                {
+                  label: "OpenAPI Extensions",
+                  link: "specification/v3_0/openapi-extensions/",
+                },
+              ],
+              collapsed: true,
             },
             {
-              label: "Building",
-              link: "open-source-tools/swagger-codegen/codegen-v2/building/"
+              label: "Version 2.0",
+              items: [
+                {
+                  label: "What is Swagger",
+                  link: "specification/v2_0/what-is-swagger/",
+                },
+                {
+                  label: "Basic Structure",
+                  link: "specification/v2_0/basic-structure/",
+                },
+                {
+                  label: "API Host and Base Path",
+                  link: "specification/v2_0/api-host-and-base-path/",
+                },
+                {
+                  label: "MIME Types",
+                  link: "specification/v2_0/mime-types/",
+                },
+                {
+                  label: "Paths and Operations",
+                  link: "specification/v2_0/paths-and-operations/",
+                },
+                {
+                  label: "Describing Parameters",
+                  link: "specification/v2_0/describing-parameters/",
+                },
+                {
+                  label: "Describing Request Body",
+                  link: "specification/v2_0/describing-request-body/",
+                },
+                {
+                  label: "File Upload",
+                  link: "specification/v2_0/file-upload/",
+                },
+                {
+                  label: "Describing Responses",
+                  link: "specification/v2_0/describing-responses/",
+                },
+                {
+                  label: "Authentication",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "specification/v2_0/authentication/authentication/",
+                    },
+                    {
+                      label: "API Keys",
+                      link: "specification/v2_0/authentication/api-keys/",
+                    },
+                    {
+                      label: "Basic Authentication",
+                      link: "specification/v2_0/authentication/basic-authentication/",
+                    },
+                  ],
+                  collapsed: true,
+                },
+                {
+                  label: "Adding Examples",
+                  link: "specification/v2_0/adding-examples/",
+                },
+                {
+                  label: "Enums",
+                  link: "specification/v2_0/enums/",
+                },
+                {
+                  label: "Grouping Operations With Tags",
+                  link: "specification/v2_0/grouping-operations-with-tags/",
+                },
+                {
+                  label: "Swagger Extensions",
+                  link: "specification/v2_0/swagger-extensions/",
+                },
+              ],
+              collapsed: true,
             },
-            {
-              label: "Using Docker",
-              link: "open-source-tools/swagger-codegen/codegen-v2/docker/"
-            },
-            {
-              label: "Generators",
-              link: "open-source-tools/swagger-codegen/codegen-v2/generators/"
-            },
-            {
-              label: "Selective Generation",
-              link: "open-source-tools/swagger-codegen/codegen-v2/generation-selective/"
-            },
-            {
-              label: "Advanced Generator Configuration",
-              link: "open-source-tools/swagger-codegen/codegen-v2/generators-configuration/"
-            },
-            {
-              label: "Workflow Integration",
-              link: "open-source-tools/swagger-codegen/codegen-v2/workflow-integration/"
-            },
-            {
-              label: "Online Generators",
-              link: "open-source-tools/swagger-codegen/codegen-v2/online-generators/"
-            }
-          ]
-        }]
-      }],
-      collapsed: true
-    }, {
-      label: "OpenAPI Guide",
-      items: [{
-        label: "Version 3.0",
-        items: [{
-          label: "What Is OpenAPI?",
-          link: "specification/v3_0/about/"
-        }, {
-          label: "Basic Structure",
-          link: "specification/v3_0/basic-structure/"
-        }, {
-          label: "API Server and Base Path",
-          link: "specification/v3_0/api-host-and-base-path/"
-        }, {
-          label: "Media Types",
-          link: "specification/v3_0/media-types/"
-        }, {
-          label: "Paths and Operations",
-          link: "specification/v3_0/paths-and-operations/"
-        }, {
-          label: "Describing Parameters",
-          link: "specification/v3_0/describing-parameters/"
-        }, {
-          label: "Parameter Serialization",
-          link: "specification/v3_0/serialization/"
-        }, {
-          label: "Describing Request Body",
-          items: [{
-            label: "Overview",
-            link: "specification/v3_0/describing-request-body/describing-request-body"
-          }, {
-            label: "File Upload",
-            link: "specification/v3_0/describing-request-body/file-upload/"
-          }, {
-            label: "Multipart Requests",
-            link: "specification/v3_0/describing-request-body/multipart-requests/"
-          }],
-          collapsed: true
-        }, {
-          label: "Describing Responses",
-          link: "specification/v3_0/describing-responses/"
-        }, {
-          label: "Data Models",
-          items: [{
-            label: "Overview",
-            link: "specification/v3_0/data-models/data-models/"
-          }, {
-            label: "Data Types",
-            link: "specification/v3_0/data-models/data-types/"
-          }, {
-            label: "Enums",
-            link: "specification/v3_0/data-models/enums/"
-          }, {
-            label: "Dictionaries, Hashmaps, Associative Arrays",
-            link: "/specification/v3_0/data-models/dictionaries/"
-          }, {
-            label: "oneOf, anyOf, allOf, not",
-            link: "specification/v3_0/data-models/oneof-anyof-allof-not/"
-          }, {
-            label: "Inheritance and Polymorphism",
-            link: "specification/v3_0/data-models/inheritance-and-polymorphism/"
-          }, {
-            label: "Representing XML",
-            link: "specification/v3_0/data-models/representing-xml/"
-          }, {
-            label: "Supported JSON Schema Keywords",
-            link: "specification/v3_0/data-models/keywords/"
-          }],
-          collapsed: true
-        }, {
-          label: "Adding Examples",
-          link: "specification/v3_0/adding-examples/"
-        }, {
-          label: "Authentication",
-          items: [{
-            label: "Overview",
-            link: "specification/v3_0/authentication/"
-          }, {
-            label: "Basic Authentication",
-            link: "specification/v3_0/authentication/basic-authentication/"
-          }, {
-            label: "API Keys",
-            link: "specification/v3_0/authentication/api-keys/"
-          }, {
-            label: "Bearer Authentication",
-            link: "specification/v3_0/authentication/bearer-authentication/"
-          }, {
-            label: "OAuth 2.0",
-            link: "specification/v3_0/authentication/oauth2/"
-          }, {
-            label: "OpenID Connect Discovery",
-            link: "specification/v3_0/authentication/openid-connect-discovery/"
-          }, {
-            label: "Cookie Authentication",
-            link: "specification/v3_0/authentication/cookie-authentication/"
-          }],
-          collapsed: true
-        }, {
-          label: "Links",
-          link: "specification/v3_0/links/"
-        }, {
-          label: "Callbacks",
-          link: "specification/v3_0/callbacks/"
-        }, {
-          label: "Components Section",
-          link: "specification/v3_0/components/"
-        }, {
-          label: "Using $ref",
-          link: "specification/v3_0/using-ref/"
-        }, {
-          label: "API General Info",
-          link: "specification/v3_0/api-general-info/"
-        }, {
-          label: "Grouping Operations With Tags",
-          link: "specification/v3_0/grouping-operations-with-tags/"
-        }, {
-          label: "OpenAPI Extensions",
-          link: "specification/v3_0/openapi-extensions/"
-        }],
-        collapsed: true
-      }, {
-        label: "Version 2.0",
-        items: [{
-          label: "What is Swagger",
-          link: "specification/v2_0/what-is-swagger/"
-        }, {
-          label: "Basic Structure",
-          link: "specification/v2_0/basic-structure/"
-        }, {
-          label: "API Host and Base Path",
-          link: "specification/v2_0/api-host-and-base-path/"
-        }, {
-          label: "MIME Types",
-          link: "specification/v2_0/mime-types/"
-        }, {
-          label: "Paths and Operations",
-          link: "specification/v2_0/paths-and-operations/"
-        }, {
-          label: "Describing Parameters",
-          link: "specification/v2_0/describing-parameters/"
-        }, {
-          label: "Describing Request Body",
-          link: "specification/v2_0/describing-request-body/"
-        }, {
-          label: "File Upload",
-          link: "specification/v2_0/file-upload/"
-        }, {
-          label: "Describing Responses",
-          link: "specification/v2_0/describing-responses/"
-        }, {
-          label: "Authentication",
-          items: [{
-            label: "Overview",
-            link: "specification/v2_0/authentication/authentication/"
-          }, {
-            label: "API Keys",
-            link: "specification/v2_0/authentication/api-keys/"
-          }, {
-            label: "Basic Authentication",
-            link: "specification/v2_0/authentication/basic-authentication/"
-          }],
-          collapsed: true
-        }, {
-          label: "Adding Examples",
-          link: "specification/v2_0/adding-examples/"
-        }, {
-          label: "Enums",
-          link: "specification/v2_0/enums/"
-        }, {
-          label: "Grouping Operations With Tags",
-          link: "specification/v2_0/grouping-operations-with-tags/"
-        }, {
-          label: "Swagger Extensions",
-          link: "specification/v2_0/swagger-extensions/"
-        }],
-        collapsed: true
-      }],
-      collapsed: true
-    }],
-    components: {
-      Header: "./src/components/Header.astro",
-      PageFrame: "./src/components/PageFrame.astro",
-      Select: "./src/components/Select.astro",
-      ThemeSelect: "./src/components/ThemeSelect.astro",
-      MobileMenuToggle: "./src/components/MobileMenuToggle.astro"
-    },
-    expressiveCode: {
-      defaultProps: {
-        wrap: true
+          ],
+          collapsed: true,
+        },
+      ],
+      components: {
+        Header: "./src/components/Header.astro",
+        PageFrame: "./src/components/PageFrame.astro",
+        Select: "./src/components/Select.astro",
+        ThemeSelect: "./src/components/ThemeSelect.astro",
+        MobileMenuToggle: "./src/components/MobileMenuToggle.astro",
       },
-      themes: ["dracula", "github-light"],
-      plugins: [pluginLineNumbers()]
-    },
-    editLink: {
-      baseUrl: 'https://github.com/swagger-api/swagger.io/tree/stage'
-    },
-    favicon: 'favicon.svg'
-  }), tailwind({
-    // Disable the default base styles:
-    applyBaseStyles: false
-  }), sitemap()], 
+      expressiveCode: {
+        defaultProps: {
+          wrap: true,
+        },
+        themes: ["dracula", "github-light"],
+        plugins: [pluginLineNumbers()],
+      },
+      editLink: {
+        baseUrl: "https://github.com/swagger-api/swagger.io/tree/stage",
+      },
+      favicon: "favicon.svg",
+    }),
+    tailwind({
+      // Disable the default base styles:
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+  ],
 });
+
